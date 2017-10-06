@@ -17,10 +17,10 @@ print('Test shape:',mnist.test.images.shape)
 print('Train shape:',mnist.train.images.shape)
 #Neural Network parameters
 learningRate=1.5
-trainingEpochs=15
+trainingEpochs=30
 batchSize=100
 inputN=784
-hiddenN=5000
+hiddenN=1000
 outputN=10
 
 x=tf.placeholder("float",[None, inputN])
@@ -69,7 +69,7 @@ with tf.Session() as sess:
     # Training cycle
     for epoch in range(trainingEpochs):
         avg_cost = 0.
-        total_batch = int(3000/batchSize)
+        total_batch = int(10000/batchSize)
         # Loop over all batches
         for i in range(total_batch):
             batch_x, batch_y = mnist.train.next_batch(batchSize)
